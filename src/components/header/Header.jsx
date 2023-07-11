@@ -1,6 +1,5 @@
 import React from "react";
 import "./Header.css";
-import { Avatar } from "@material-ui/core";
 import {
   AccountCircleOutlined,
   AccessTime,

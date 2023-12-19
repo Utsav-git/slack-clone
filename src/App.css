@@ -5,4 +5,9 @@ body {
   --white: #fff;
   --gray: #808080;
   --green: #6ccca5;
+  overflow: hidden;
+}
+.app__body {
+  display: flex;
+  height: 100vh;
 }

@@ -52,11 +52,17 @@ const Sidebar = () => {
       <hr />
       <SidebarOption Icon={ExpandMore} title="Channels" />
       <hr />
-      <SidebarOption Icon={Add} title="Add Channel" />
+      <SidebarOption Icon={Add} title="Add Channel" addChannelOption={true} />
       {/* Connect to DB and list all the channels from DB */}
       {channels.map((channel) => {
         /* <SidebarOption .../> */
-        return <SidebarOption key={channel.id} title={channel.name} />;
+        return (
+          <SidebarOption
+            key={channel.id}
+            title={channel.name}
+            id={channel.id}
+          />
+        );
       })}
     </div>
   );

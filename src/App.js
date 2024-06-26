@@ -4,16 +4,18 @@ import Header from "./components/header/Header";
 import Sidebar from "./components/sidebar/Sidebar";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Welcome from "./components/welcome/Welcome";
-import { useState } from "react";
 import { Login } from "./components/login/Login";
+import { useSelector } from "react-redux";
 
 function App() {
-  const [user, setUser] = useState(null);
+  // const [user, setUser] = useState(null);
+  const { isAuth } = useSelector((state) => state.authentication);
+  console.log("APP->", isAuth);
   return (
     // BEM Naming Convention eg: className = "app"
     <div className="app">
       <BrowserRouter>
-        {!user ? (
+        {!isAuth ? (
           <Login />
         ) : (
           <>

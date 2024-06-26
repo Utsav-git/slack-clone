@@ -4,8 +4,10 @@ import { Button } from "@material-ui/core";
 import { auth, provider } from "../../firebase/Firebase";
 import { useDispatch } from "react-redux";
 import { login } from "../../auth/authSlice";
+import { useNavigate } from "react-router-dom";
 
 export const Login = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const signIn = () => {
     console.log("Sign In....");
@@ -15,6 +17,7 @@ export const Login = () => {
         const data = res.user;
         console.log(data);
         dispatch(login(data));
+        navigate("/");
       })
       .catch((error) => console.log(error.message));
   };
@@ -24,7 +27,7 @@ export const Login = () => {
         <img src={SlackLogo} alt="Slack Logo" />
         <h3>Sign in to Utsav's Slack</h3>
         <p>https://app.slack.com/client/T05KS1Y7N78/D05KJ5710P9</p>
-        <Button onClick={signIn} >Sign In with Google</Button>
+        <Button onClick={signIn}>Sign In with Google</Button>
       </div>
     </div>
   );

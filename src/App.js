@@ -10,6 +10,7 @@ import { useSelector } from "react-redux";
 function App() {
   // const [user, setUser] = useState(null);
   const { isAuth } = useSelector((state) => state.authentication);
+  localStorage.setItem("isAuthenticated", isAuth);
   console.log("APP->", isAuth);
   return (
     // BEM Naming Convention eg: className = "app"

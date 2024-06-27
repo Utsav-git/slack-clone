@@ -13,7 +13,10 @@ const authSlice = createSlice({
       state.user = { email, displayName };
       state.isAuth = true;
     },
+    logout: (state, action) => {
+      state.isAuth = false;
+    },
   },
 });
-export const { login } = authSlice.actions;
+export const { login, logout } = authSlice.actions;
 export default authSlice.reducer;

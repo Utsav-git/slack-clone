@@ -5,6 +5,7 @@ import {
   AccessTime,
   HelpOutline,
   Search,
+  ExitToApp,
 } from "@material-ui/icons";
 
 const Header = () => {
@@ -12,9 +13,19 @@ const Header = () => {
     <div className="header">
       <div className="header__left">
         {/* Avatar Icon for Logged in user */}
-        <AccountCircleOutlined />
+        <AccountCircleOutlined
+          titleAccess="Profile"
+          onClick={() => {
+            console.log("Profile");
+          }}
+        />
         {/* Time Icon */}
-        <AccessTime />
+        <AccessTime
+          titleAccess="Recents"
+          onClick={() => {
+            console.log("Recents");
+          }}
+        />
       </div>
       <div className="header__search">
         {/* Search Icon */}
@@ -24,7 +35,18 @@ const Header = () => {
       </div>
       <div className="header__right">
         {/* Help Icon */}
-        <HelpOutline />
+        <HelpOutline
+          titleAccess="Help"
+          onClick={() => {
+            console.log("Help");
+          }}
+        />
+        <ExitToApp
+          titleAccess="Logout"
+          onClick={() => {
+            console.log("Logout");
+          }}
+        />
       </div>
     </div>
   );

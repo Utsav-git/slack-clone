@@ -1,14 +1,19 @@
 import React from "react";
 import "./Header.css";
-import {
-  AccountCircleOutlined,
-  AccessTime,
-  HelpOutline,
-  Search,
-  ExitToApp,
-} from "@material-ui/icons";
+import AccountCircleOutlined from "@material-ui/icons/AccountCircleOutlined";
+import AccessTime from "@material-ui/icons/AccessTime";
+import HelpOutline from "@material-ui/icons/HelpOutline";
+import Search from "@material-ui/icons/Search";
+import ExitToApp from "@material-ui/icons/ExitToApp";
+import { useDispatch } from "react-redux";
+import { logout } from "../../auth/authSlice";
 
 const Header = () => {
+  const dispatch = useDispatch();
+  const signOut = () => {
+    console.log("Signing out...");
+    dispatch(logout());
+  };
   return (
     <div className="header">
       <div className="header__left">
@@ -41,12 +46,7 @@ const Header = () => {
             console.log("Help");
           }}
         />
-        <ExitToApp
-          titleAccess="Logout"
-          onClick={() => {
-            console.log("Logout");
-          }}
-        />
+        <ExitToApp titleAccess="Logout" onClick={signOut} />
       </div>
     </div>
   );

@@ -1,25 +1,24 @@
 import {
-  Switch,
+  Routes,
   Route,
   Redirect,
   useLocation,
   useNavigate,
+  Navigate,
 } from "react-router-dom";
 import Welcome from "./components/welcome/Welcome";
 import { Login } from "./components/login/Login";
 import Chat from "./components/chat/Chat";
 import { useSelector } from "react-redux";
+import { NotFound } from "./components/404-not-found/NotFound";
 
 function navigateTo(path) {
-  return <Redirect to={path} />;
+  return <Navigate to={path} />;
 }
 
-const Routes = () => {
-  //   const { isAuth } = useSelector((state) => state.authentication);
+const AppRoutes = () => {
   const isLoggedIn = localStorage.getItem("isAuth");
-  //   const currentPage = `${useLocation().pathname.split("/")?.[1]}/${
-  //     useLocation().pathname.split("/")?.[2]
-  //   }`;
+
   const authGuard = (Component, isLoggedIn) => {
     if (!isLoggedIn) {
       return navigateTo("/login");
@@ -52,44 +51,19 @@ const Routes = () => {
     },
   ];
 
-  //   const isAvailable = RoutePath.find(
-  //     (routerItem: any) =>
-  //       `${routerItem.path.split("/")?.[1]}/${
-  //         routerItem.path.split("/")?.[2]
-  //       }` === currentPage
-  //   );
-  //   return (
-  //     <Switch>
-  //       <>
-  //         {RoutePath.map((routerItem) => {
-  //           const mainMenu = `${routerItem.path.split("/")?.[1]}/${
-  //             routerItem.path.split("/")?.[2]
-  //           }`;
-
-  //           if (mainMenu === currentPage) {
-  //             return (
-  //               <Route
-  //                 exact
-  //                 path={routerItem.path}
-  //                 render={(props): any => {
-  //                   return routerItem.render;
-  //                 }}
-  //               />
-  //             );
-  //           }
-  //           if (!isAvailable) {
-  //             return navigateTo("not-found");
-  //           }
-  //         })}
-  //         {!isAvailable && (
-  //           <Route
-  //             path="/*"
-  //             exact
-  //             render={(props) => authGuard(NotFound, isLoggedIn)}
-  //           />
-  //         )}
-  //       </>
-  //     </Switch>
-  //   );
+  return (
+    <Routes>
+      <>
+        {RoutePath.map((routerItem, index) => (
+          <Route
+            key={index}
+            exact
+            path={routerItem.path}
+            element={routerItem.render}
+          />
+        ))}
+      </>
+    </Routes>
+  );
 };
-export default Routes;
+export default AppRoutes;

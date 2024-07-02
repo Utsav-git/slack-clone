@@ -9,8 +9,8 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     login: (state, action) => {
-      const { email, displayName } = action.payload;
-      state.user = { email, displayName };
+      const { email, displayName, photoURL } = action.payload;
+      state.user = { email, displayName, photoURL };
       state.isAuth = true;
     },
     logout: (state, action) => {

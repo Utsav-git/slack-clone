@@ -15,7 +15,6 @@ export const Login = () => {
       .signInWithPopup(provider)
       .then((res) => {
         const data = res.user;
-        console.log(data);
         dispatch(login(data));
         localStorage.setItem("userData", JSON.stringify(data));
         // navigate("/");

@@ -16,8 +16,8 @@ export const Login = () => {
       .then((res) => {
         const data = res.user;
         dispatch(login(data));
-        localStorage.setItem("userData", JSON.stringify(data));
-        // navigate("/");
+        // localStorage.setItem("isAuthenticated", true);
+        navigate("/");
       })
       .catch((error) => console.log(error.message));
   };

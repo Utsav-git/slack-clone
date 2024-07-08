@@ -13,6 +13,7 @@ const Header = () => {
   const signOut = () => {
     console.log("Signing out...");
     dispatch(logout());
+    localStorage.setItem("isAuthenticated", false);
   };
   return (
     <div className="header">

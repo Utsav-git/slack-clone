@@ -8,8 +8,14 @@ import { Login } from "./components/login/Login";
 import { useSelector } from "react-redux";
 
 function App() {
-  const { isAuth } = useSelector((state) => state.authentication);
-  localStorage.setItem("isAuthenticated", isAuth);
+  let { isAuth } = useSelector((state) => state.authentication);
+
+  if (localStorage.getItem("isAuthenticated")) {
+    localStorage.getItem("isAuthenticated") === true
+      ? (isAuth = true)
+      : (isAuth = false);
+  }
+  console.log("App", isAuth);
 
   return (
     // BEM Naming Convention eg: className = "app"

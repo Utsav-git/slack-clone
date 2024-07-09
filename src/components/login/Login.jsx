@@ -7,8 +7,8 @@ import { login } from "../../auth/authSlice";
 import { useNavigate } from "react-router-dom";
 
 export const Login = () => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const signIn = () => {
     console.log("Sign In....");
     auth
@@ -16,8 +16,8 @@ export const Login = () => {
       .then((res) => {
         const data = res.user;
         dispatch(login(data));
-        // localStorage.setItem("isAuthenticated", true);
-        navigate("/");
+        localStorage.setItem("isAuthenticated", true);
+        navigate("/welcome");
       })
       .catch((error) => console.log(error.message));
   };

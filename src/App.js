@@ -11,11 +11,10 @@ function App() {
   let { isAuth } = useSelector((state) => state.authentication);
 
   if (localStorage.getItem("isAuthenticated")) {
-    localStorage.getItem("isAuthenticated") === true
+    localStorage.getItem("isAuthenticated")
       ? (isAuth = true)
       : (isAuth = false);
   }
-  console.log("App", isAuth);
 
   return (
     // BEM Naming Convention eg: className = "app"
@@ -33,7 +32,8 @@ function App() {
               {/* React Router for Chat screen */}
               <Routes>
                 <Route path="/room/:roomId" element={<Chat />}></Route>
-                <Route path="/" element={<Welcome />}></Route>
+                <Route path="/welcome" element={<Welcome />}></Route>
+                <Route path="/" element={<Login />}></Route>
               </Routes>
             </div>
           </>

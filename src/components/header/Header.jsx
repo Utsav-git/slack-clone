@@ -7,13 +7,16 @@ import Search from "@material-ui/icons/Search";
 import ExitToApp from "@material-ui/icons/ExitToApp";
 import { useDispatch } from "react-redux";
 import { logout } from "../../auth/authSlice";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const signOut = () => {
     console.log("Signing out...");
     dispatch(logout());
-    localStorage.setItem("isAuthenticated", false);
+    // navigate("/");
+    localStorage.removeItem("isAuthenticated", false);
   };
   return (
     <div className="header">

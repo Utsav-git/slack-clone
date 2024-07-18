@@ -13,10 +13,12 @@ const Header = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const signOut = () => {
-    console.log("Signing out...");
-    dispatch(logout());
-    // navigate("/");
-    localStorage.removeItem("isAuthenticated", false);
+    localStorage.removeItem("isAuthenticated");
+    setTimeout(() => {
+      console.log("Signing out...");
+      dispatch(logout());
+      navigate("/");
+    }, 100);
   };
   return (
     <div className="header">

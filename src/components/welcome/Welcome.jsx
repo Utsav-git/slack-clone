@@ -1,7 +1,9 @@
 import React from "react";
+import Header from "../header/Header";
+import Sidebar from "../sidebar/Sidebar";
 
 const Welcome = () => {
-  return <div>Welcome</div>;
+  return <>Welcome</>;
 };
 
 export default Welcome;

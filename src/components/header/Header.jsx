@@ -1,20 +1,43 @@
 import React from "react";
 import "./Header.css";
-import {
-  AccountCircleOutlined,
-  AccessTime,
-  HelpOutline,
-  Search,
-} from "@material-ui/icons";
+import AccountCircleOutlined from "@material-ui/icons/AccountCircleOutlined";
+import AccessTime from "@material-ui/icons/AccessTime";
+import HelpOutline from "@material-ui/icons/HelpOutline";
+import Search from "@material-ui/icons/Search";
+import ExitToApp from "@material-ui/icons/ExitToApp";
+import { useDispatch } from "react-redux";
+import { logout } from "../../auth/authSlice";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const signOut = () => {
+    localStorage.removeItem("isAuthenticated");
+    localStorage.clear();
+    setTimeout(() => {
+      console.log("Signing out...");
+      dispatch(logout());
+      window.location.replace("/");
+    }, 100);
+  };
   return (
     <div className="header">
       <div className="header__left">
         {/* Avatar Icon for Logged in user */}
-        <AccountCircleOutlined />
+        <AccountCircleOutlined
+          titleAccess="Profile"
+          onClick={() => {
+            console.log("Profile");
+          }}
+        />
         {/* Time Icon */}
-        <AccessTime />
+        <AccessTime
+          titleAccess="Recents"
+          onClick={() => {
+            console.log("Recents");
+          }}
+        />
       </div>
       <div className="header__search">
         {/* Search Icon */}
@@ -24,7 +47,13 @@ const Header = () => {
       </div>
       <div className="header__right">
         {/* Help Icon */}
-        <HelpOutline />
+        <HelpOutline
+          titleAccess="Help"
+          onClick={() => {
+            console.log("Help");
+          }}
+        />
+        <ExitToApp titleAccess="Logout" onClick={signOut} />
       </div>
     </div>
   );

@@ -8,7 +8,7 @@ import { Login } from "./components/login/Login";
 import { useSelector } from "react-redux";
 
 function App() {
-  let { isAuth } = useSelector((state) => state.authentication);
+  let { isAuth, user } = useSelector((state) => state.authentication);
 
   if (localStorage.getItem("isAuthenticated")) {
     localStorage.getItem("isAuthenticated")
@@ -20,25 +20,24 @@ function App() {
     // BEM Naming Convention eg: className = "app"
     <div className="app">
       <BrowserRouter>
-        {/* {!isAuth ? (
+        {!isAuth ? (
           <Login />
-        ) : ( */}
-        <>
-          {/* Header */}
-
-          <div className="app__body">
-            {isAuth && <Header />}
-            {/* Sidebar */}
-            {isAuth && <Sidebar />}
-            {/* React Router for Chat screen */}
-            <Routes>
-              <Route path="/room/:roomId" element={<Chat />}></Route>
-              <Route path="/welcome" element={<Welcome />}></Route>
-              <Route path="/" element={<Login />}></Route>
-            </Routes>
-          </div>
-        </>
-        {/* )} */}
+        ) : (
+          <>
+            {/* Header */}
+            <Header />
+            <div className="app__body">
+              {/* Sidebar */}
+              <Sidebar />
+              {/* React Router for Chat screen */}
+              <Routes>
+                <Route path="/room/:roomId" element={<Chat />}></Route>
+                <Route path="/welcome" element={<Welcome />}></Route>
+                <Route path="/" element={<Login />}></Route>
+              </Routes>
+            </div>
+          </>
+        )}
       </BrowserRouter>
     </div>
   );

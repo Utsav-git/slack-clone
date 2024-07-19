@@ -14,10 +14,11 @@ const Header = () => {
   const navigate = useNavigate();
   const signOut = () => {
     localStorage.removeItem("isAuthenticated");
+    localStorage.clear();
     setTimeout(() => {
       console.log("Signing out...");
       dispatch(logout());
-      navigate("/");
+      window.location.replace("/");
     }, 100);
   };
   return (

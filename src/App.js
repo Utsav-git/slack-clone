@@ -8,7 +8,7 @@ import { Login } from "./components/login/Login";
 import { useSelector } from "react-redux";
 
 function App() {
-  let { isAuth, user } = useSelector((state) => state.authentication);
+  let { isAuth } = useSelector((state) => state.authentication);
 
   if (localStorage.getItem("isAuthenticated")) {
     localStorage.getItem("isAuthenticated")

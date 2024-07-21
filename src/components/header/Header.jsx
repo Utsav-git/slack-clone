@@ -1,15 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Header.css";
 import AccountCircleOutlined from "@material-ui/icons/AccountCircleOutlined";
 import AccessTime from "@material-ui/icons/AccessTime";
 import HelpOutline from "@material-ui/icons/HelpOutline";
 import Search from "@material-ui/icons/Search";
 import ExitToApp from "@material-ui/icons/ExitToApp";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../auth/authSlice";
 import { useNavigate } from "react-router-dom";
+import { Avatar } from "@material-ui/core";
 
 const Header = () => {
+  const { user } = useSelector((state) => state.authentication);
+
+  const [userData, setUserData] = useState([]);
+  // console.log(user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const signOut = () => {
@@ -25,12 +30,19 @@ const Header = () => {
     <div className="header">
       <div className="header__left">
         {/* Avatar Icon for Logged in user */}
-        <AccountCircleOutlined
-          titleAccess="Profile"
+        <Avatar
+          style={{
+            cursor: "pointer",
+            marginRight: "5px",
+          }}
+          src={userData?.photoURL}
+          alt={userData?.displayName}
           onClick={() => {
             console.log("Profile");
           }}
+          titleAccess="Profile"
         />
+
         {/* Time Icon */}
         <AccessTime
           titleAccess="Recents"

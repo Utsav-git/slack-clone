@@ -16,8 +16,14 @@ import {
 } from "@material-ui/icons";
 import SidebarOption from "./SidebarOption";
 import db from "../../firebase/Firebase";
+import { useSelector } from "react-redux";
 
 const Sidebar = () => {
+  // const { user } = useSelector((state) => state.authentication);
+  const user = localStorage.getItem("userDetails")
+    ? JSON.parse(localStorage.getItem("userDetails") || "")
+    : {};
+
   const [channels, setChannels] = useState([]);
   useEffect(() => {
     db.collection("channels").onSnapshot((snapshot) =>
@@ -36,7 +42,7 @@ const Sidebar = () => {
           <h2>Slack Clone</h2>
           <h3>
             <FiberManualRecord />
-            Utsav
+            {user?.displayName}
           </h3>
         </div>
         <Create />

@@ -9,7 +9,7 @@ export const Message = ({ message, timeStamp, user, userImage }) => {
         <h4>
           {user}
           <span className="message__timestamp">
-            {new Date(timeStamp?.toDate()).toUTCString()}
+            {new Date(timeStamp?.toDate()).toLocaleString()}
           </span>
         </h4>
         <p>{message}</p>

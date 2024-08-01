@@ -11,10 +11,13 @@ import { useNavigate } from "react-router-dom";
 import { Avatar } from "@material-ui/core";
 
 const Header = () => {
-  const { user } = useSelector((state) => state.authentication);
+  // Extract user details from redux store
+  // const { user } = useSelector((state) => state.authentication);
+  const user = localStorage.getItem("userDetails")
+    ? JSON.parse(localStorage.getItem("userDetails") || "")
+    : {};
 
-  const [userData, setUserData] = useState([]);
-  // console.log(user);
+  // const [userData, setUserData] = useState([]);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const signOut = () => {
@@ -35,12 +38,12 @@ const Header = () => {
             cursor: "pointer",
             marginRight: "5px",
           }}
-          src={userData?.photoURL}
-          alt={userData?.displayName}
+          src={user?.photoURL}
+          alt={user?.displayName}
           onClick={() => {
             console.log("Profile");
           }}
-          titleAccess="Profile"
+          titleaccess="Profile"
         />
 
         {/* Time Icon */}

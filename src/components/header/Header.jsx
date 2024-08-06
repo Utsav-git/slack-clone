@@ -13,9 +13,7 @@ import { Avatar } from "@material-ui/core";
 const Header = () => {
   // Extract user details from redux store
   // const { user } = useSelector((state) => state.authentication);
-  const user = localStorage.getItem("userDetails")
-    ? JSON.parse(localStorage.getItem("userDetails") || "")
-    : {};
+  const user = JSON.parse(localStorage.getItem("userDetails"));
 
   // const [userData, setUserData] = useState([]);
   const dispatch = useDispatch();

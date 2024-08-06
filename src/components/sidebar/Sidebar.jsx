@@ -39,12 +39,13 @@ const Sidebar = () => {
     <div className="sidebar">
       <div className="sidebar__header">
         <div className="sidebar__info">
-          <h2>Slack Clone</h2>
+          <h2>Socio Vert</h2>
           <h3>
             <FiberManualRecord />
             {user?.displayName}
           </h3>
         </div>
+        
         <Create />
       </div>
       <SidebarOption Icon={InsertComment} title="Unread" />

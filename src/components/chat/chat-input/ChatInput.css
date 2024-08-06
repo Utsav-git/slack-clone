@@ -1,0 +1,26 @@
+.chatInput {
+  /* background-color: #f1f1f1; */
+  padding: 0 20px;
+}
+.chatInput > form {
+  position: relative;
+  display: flex;
+  justify-content: start;
+}
+.chatInput > form > input {
+  width: 100%;
+  /* bottom: 30px; */
+  border: 1px solid #161515;
+  background: #f1f1f1;
+  height: 50px;
+  padding: 0 10px;
+}
+.chatInput > form > .submitBtn {
+  /* border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  border: none;
+  background-color: #efefef;
+  cursor: pointer; */
+  display: none;
+}

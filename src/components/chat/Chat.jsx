@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { InfoOutlined, StarBorderOutlined } from "@material-ui/icons";
 import db from "../../firebase/Firebase";
 import { Message } from "../message/Message";
+import { ChatInput } from "./chat-input/ChatInput";
 const Chat = () => {
   const { roomId } = useParams();
   const [roomDetails, setRoomDetails] = useState(null);
@@ -17,7 +18,7 @@ const Chat = () => {
     db.collection("channels")
       .doc(roomId)
       .collection("messages")
-      .orderBy("timeStamp", "asc")
+      .orderBy("createdAt", "asc")
       .onSnapshot((snapshot) =>
         setRoomMessages(snapshot.docs.map((doc) => doc.data()))
       );
@@ -45,10 +46,10 @@ const Chat = () => {
       <div className="chat__messages">
         {/* Message Component */}
         {roomMessages.map(
-          ({ message, timeStamp, user, userImage }) => (
+          ({ message, createdAt, user, userImage }) => (
             <Message
               message={message}
-              timeStamp={timeStamp}
+              createdAt={createdAt}
               user={user}
               userImage={userImage}
             />
@@ -56,6 +57,7 @@ const Chat = () => {
           // console.log(message)
         )}
       </div>
+      <ChatInput roomName={roomDetails?.name} roomID={roomId} />
     </div>
   );
 };

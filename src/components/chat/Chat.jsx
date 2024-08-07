@@ -10,9 +10,13 @@ const Chat = () => {
   const [roomDetails, setRoomDetails] = useState(null);
   const [roomMessages, setRoomMessages] = useState([]);
 
-  const scrollTop = document.querySelector(".chat__messages").scrollTop;
-  const clientHeight = document.querySelector(".chat__messages").clientHeight;
-  const scrollHeight = document.querySelector(".chat__messages").scrollHeight;
+  let scrollTop = document.querySelector(".chat__messages")?.scrollTop;
+  let clientHeight = document.querySelector(".chat__messages")?.clientHeight;
+  let scrollHeight = document.querySelector(".chat__messages")?.scrollHeight;
+  let shouldScroll = null;
+  const scrollToBottom = () => {
+    scrollTop = scrollHeight;
+  };
   useEffect(() => {
     if (roomId) {
       db.collection("channels")
@@ -27,7 +31,13 @@ const Chat = () => {
         setRoomMessages(snapshot.docs.map((doc) => doc.data()))
       );
   }, [roomId]);
-  // console.log("Messages:", roomMessages);
+  if (roomMessages) {
+    shouldScroll = scrollTop + clientHeight === scrollHeight;
+  }
+  if (!shouldScroll) {
+    scrollToBottom();
+  }
+  console.log("Should Scroll:", shouldScroll);
 
   return (
     <div className="chat">

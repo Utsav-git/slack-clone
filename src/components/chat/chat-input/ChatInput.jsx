@@ -2,9 +2,7 @@ import { useState } from "react";
 import "./ChatInput.css";
 import ArrowRight from "@material-ui/icons/ArrowRight";
 import db from "../../../firebase/Firebase";
-// import firebase from "firebase";
 import firebase from "firebase/compat/app";
-import { Input } from "@material-ui/core";
 
 export const ChatInput = (props) => {
   const { roomName, roomID } = props;

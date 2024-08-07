@@ -4,23 +4,31 @@
 }
 .chatInput > form {
   position: relative;
+  /* bottom: 30px; */
   display: flex;
   justify-content: start;
+  align-items: center;
 }
 .chatInput > form > input {
-  width: 100%;
-  /* bottom: 30px; */
-  border: 1px solid #161515;
+  width: 70%;
+  border: none;
   background: #f1f1f1;
   height: 50px;
+  border-radius: 8px;
   padding: 0 10px;
+  margin-right: 5px;
 }
 .chatInput > form > .submitBtn {
-  /* border-radius: 50%;
-  height: 50px;
-  width: 50px;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
   border: none;
-  background-color: #efefef;
-  cursor: pointer; */
-  display: none;
+  color: var(--white);
+  background-color: #673569;
+  cursor: pointer;
+  /* display: none; */
+}
+
+.submitBtn .MuiSvgIcon-root {
+  font-size: 30px;
 }

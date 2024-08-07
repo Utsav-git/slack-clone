@@ -9,6 +9,10 @@ const Chat = () => {
   const { roomId } = useParams();
   const [roomDetails, setRoomDetails] = useState(null);
   const [roomMessages, setRoomMessages] = useState([]);
+
+  const scrollTop = document.querySelector(".chat__messages").scrollTop;
+  const clientHeight = document.querySelector(".chat__messages").clientHeight;
+  const scrollHeight = document.querySelector(".chat__messages").scrollHeight;
   useEffect(() => {
     if (roomId) {
       db.collection("channels")
@@ -24,6 +28,7 @@ const Chat = () => {
       );
   }, [roomId]);
   // console.log("Messages:", roomMessages);
+
   return (
     <div className="chat">
       {/* <h2>You're in {roomId} room</h2> */}
@@ -44,6 +49,7 @@ const Chat = () => {
         </div>
       </div>
       <div className="chat__messages">
+        {roomMessages.length === 0 && <div>Start Messaging and Connect</div>}
         {/* Message Component */}
         {roomMessages.map(
           ({ message, createdAt, user, userImage }) => (

@@ -4,6 +4,7 @@ import ArrowRight from "@material-ui/icons/ArrowRight";
 import db from "../../../firebase/Firebase";
 // import firebase from "firebase";
 import firebase from "firebase/compat/app";
+import { Input } from "@material-ui/core";
 
 export const ChatInput = (props) => {
   const { roomName, roomID } = props;
@@ -15,7 +16,7 @@ export const ChatInput = (props) => {
 
   const sendMessage = (e) => {
     e.preventDefault();
-    if (roomID) {
+    if (roomID && inputMessage) {
       db.collection("channels").doc(roomID).collection("messages").add({
         message: inputMessage,
         createdAt: firebase.firestore.FieldValue.serverTimestamp(),

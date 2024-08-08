@@ -33,7 +33,7 @@ function App() {
               <Routes>
                 <Route path="/room/:roomId" element={<Chat />}></Route>
                 <Route path="/welcome" element={<Welcome />}></Route>
-                <Route path="/" element={<Login />}></Route>
+                {/* <Route path="/" element={<Login />}></Route> */}
               </Routes>
             </div>
           </>

@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "./Sidebar.css";
 import {
-  Add,
+  AddBoxRounded,
   Apps,
   Bookmark,
+  ChevronRight,
   Create,
   Drafts,
   ExpandLess,
@@ -25,6 +26,7 @@ const Sidebar = () => {
     : {};
 
   const [channels, setChannels] = useState([]);
+  const [isExpanded, setIsExpanded] = useState(false);
   useEffect(() => {
     db.collection("channels").onSnapshot((snapshot) =>
       setChannels(
@@ -45,7 +47,7 @@ const Sidebar = () => {
             {user?.displayName}
           </h3>
         </div>
-        
+
         <Create />
       </div>
       <SidebarOption Icon={InsertComment} title="Unread" />
@@ -57,20 +59,42 @@ const Sidebar = () => {
       <SidebarOption Icon={FileCopy} title="File Browser" />
       <SidebarOption Icon={ExpandLess} title="Show Less" />
       <hr />
-      <SidebarOption Icon={ExpandMore} title="Channels" />
-      <hr />
-      <SidebarOption Icon={Add} title="Add Channel" addChannelOption={true} />
+      {/* <SidebarOption Icon={ExpandMore} title="Channels" /> */}
+      <div
+        className="sidebarOption"
+        onClick={() => {
+          setIsExpanded(!isExpanded);
+        }}
+      >
+        {isExpanded ? (
+          <ExpandMore className="sidebarOption__icon" />
+        ) : (
+          <ChevronRight className="sidebarOption__icon" />
+        )}
+
+        <h3>Channels</h3>
+      </div>
+      {/* <hr /> */}
+
       {/* Connect to DB and list all the channels from DB */}
-      {channels.map((channel) => {
-        /* <SidebarOption .../> */
-        return (
-          <SidebarOption
-            key={channel.id}
-            title={channel.name}
-            id={channel.id}
-          />
-        );
-      })}
+      {isExpanded &&
+        channels.map((channel) => {
+          /* <SidebarOption .../> */
+          return (
+            <SidebarOption
+              key={channel.id}
+              title={channel.name}
+              id={channel.id}
+            />
+          );
+        })}
+      {isExpanded && (
+        <SidebarOption
+          Icon={AddBoxRounded}
+          title="Add Channel"
+          addChannelOption={true}
+        />
+      )}
     </div>
   );
 };

@@ -1,11 +1,10 @@
-import React from "react";
 import "./SidebarOption.css";
 import { useNavigate } from "react-router-dom";
 import db from "../../firebase/Firebase";
+import { ChevronRight } from "@material-ui/icons";
 
 const SidebarOption = ({ Icon, title, id, addChannelOption }) => {
   const navigate = useNavigate();
-
   const addChannel = () => {
     const channelName = prompt(`Please enter channel name`);
     if (channelName) {
@@ -22,14 +21,21 @@ const SidebarOption = ({ Icon, title, id, addChannelOption }) => {
       className="sidebarOption"
       onClick={addChannelOption ? addChannel : selectChannel}
     >
-      {Icon && <Icon className="sidebarOption__icon" />}
+      {/* {Icon && <Icon className="sidebarOption__icon" />} */}
       {Icon ? (
-        <h3>{title}</h3>
+        <>
+          <Icon className="sidebarOption__icon" />
+          <h3>{title}</h3>
+        </>
       ) : (
-        <h3 className="sidebarOption__channel">
-          <span className="sidebarOption__hash">#</span>
-          {title}
-        </h3>
+        <>
+          {/* <span className="sidebarOption__icon">#</span> */}
+          <ChevronRight className="sidebarOption__icon" />
+          <h3>
+            {/* <span className="sidebarOption__hash"></span> */}
+            {title}
+          </h3>
+        </>
       )}
     </div>
   );

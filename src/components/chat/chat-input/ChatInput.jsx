@@ -1,8 +1,8 @@
 import { useState } from "react";
 import "./ChatInput.css";
-import ArrowRight from "@material-ui/icons/ArrowRight";
 import db from "../../../firebase/Firebase";
 import firebase from "firebase/compat/app";
+import { Send } from "@material-ui/icons";
 
 export const ChatInput = (props) => {
   const { roomName, roomID } = props;
@@ -37,7 +37,8 @@ export const ChatInput = (props) => {
           placeholder={`Message #${roomName?.toLowerCase()}`}
         />
         <button className="submitBtn" type="submit" onClick={sendMessage}>
-          <ArrowRight />
+          {/* <ArrowRight /> */}
+          <Send />
         </button>
       </form>
     </div>

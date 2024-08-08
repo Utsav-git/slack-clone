@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from "react";
 import "./Header.css";
-import AccountCircleOutlined from "@material-ui/icons/AccountCircleOutlined";
 import AccessTime from "@material-ui/icons/AccessTime";
 import HelpOutline from "@material-ui/icons/HelpOutline";
 import Search from "@material-ui/icons/Search";
@@ -39,6 +37,7 @@ const Header = () => {
           src={user?.photoURL}
           alt={user?.displayName}
           onClick={() => {
+            navigate("/profile");
             console.log("Profile");
           }}
           titleaccess="Profile"

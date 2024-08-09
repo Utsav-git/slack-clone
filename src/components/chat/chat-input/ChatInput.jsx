@@ -2,7 +2,8 @@ import { useState } from "react";
 import "./ChatInput.css";
 import db from "../../../firebase/Firebase";
 import firebase from "firebase/compat/app";
-import { Send } from "@material-ui/icons";
+import SendIcon from "@mui/icons-material/Send";
+import { ModalComponent } from "../../modals/ModalComponent";
 
 export const ChatInput = (props) => {
   const { roomName, roomID } = props;
@@ -26,6 +27,7 @@ export const ChatInput = (props) => {
   };
   return (
     <div className="chatInput">
+      <ModalComponent />;
       <form>
         <input
           autoFocus
@@ -38,7 +40,7 @@ export const ChatInput = (props) => {
         />
         <button className="submitBtn" type="submit" onClick={sendMessage}>
           {/* <ArrowRight /> */}
-          <Send />
+          <SendIcon />
         </button>
       </form>
     </div>

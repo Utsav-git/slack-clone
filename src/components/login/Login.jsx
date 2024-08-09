@@ -1,6 +1,6 @@
 import "./Login.css";
 import SlackLogo from "../../images/Slack_Logo.png";
-import { Button } from "@material-ui/core";
+import Button from "@mui/material/Button";
 import { auth, provider } from "../../firebase/Firebase";
 import { useDispatch } from "react-redux";
 import { login } from "../../auth/authSlice";

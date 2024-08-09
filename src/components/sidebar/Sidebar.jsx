@@ -1,20 +1,18 @@
 import React, { useEffect, useState } from "react";
 import "./Sidebar.css";
-import {
-  AddBoxRounded,
-  Apps,
-  Bookmark,
-  ChevronRight,
-  Create,
-  Drafts,
-  ExpandLess,
-  ExpandMore,
-  FiberManualRecord,
-  FileCopy,
-  Inbox,
-  InsertComment,
-  PeopleAlt,
-} from "@material-ui/icons";
+import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
+import CreateIcon from '@mui/icons-material/Create';
+import InsertCommentIcon from "@mui/icons-material/InsertComment";
+import InboxIcon from "@mui/icons-material/Inbox";
+import DraftsIcon from "@mui/icons-material/Drafts";
+import BookmarkIcon from "@mui/icons-material/Bookmark";
+import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
+import AppsIcon from "@mui/icons-material/Apps";
+import FileCopyIcon from "@mui/icons-material/FileCopy";
+import ExpandLessIcon from "@mui/icons-material/ExpandLess";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import AddBoxIcon from "@mui/icons-material/AddBox";
 import SidebarOption from "./SidebarOption";
 import db from "../../firebase/Firebase";
 import { useSelector } from "react-redux";
@@ -43,21 +41,21 @@ const Sidebar = () => {
         <div className="sidebar__info">
           <h2>Socio Vert</h2>
           <h3>
-            <FiberManualRecord />
+            <FiberManualRecordIcon />
             {user?.displayName}
           </h3>
         </div>
 
-        <Create />
+        <CreateIcon />
       </div>
-      <SidebarOption Icon={InsertComment} title="Unread" />
-      <SidebarOption Icon={Inbox} title="Mentions & Reactions" />
-      <SidebarOption Icon={Drafts} title="Saved Items" />
-      <SidebarOption Icon={Bookmark} title="Channel Browser" />
-      <SidebarOption Icon={PeopleAlt} title="People & Groups" />
-      <SidebarOption Icon={Apps} title="Apps" />
-      <SidebarOption Icon={FileCopy} title="File Browser" />
-      <SidebarOption Icon={ExpandLess} title="Show Less" />
+      <SidebarOption Icon={InsertCommentIcon} title="Unread" />
+      <SidebarOption Icon={InboxIcon} title="Mentions & Reactions" />
+      <SidebarOption Icon={DraftsIcon} title="Saved Items" />
+      <SidebarOption Icon={BookmarkIcon} title="Channel Browser" />
+      <SidebarOption Icon={PeopleAltIcon} title="People & Groups" />
+      <SidebarOption Icon={AppsIcon} title="Apps" />
+      <SidebarOption Icon={FileCopyIcon} title="File Browser" />
+      <SidebarOption Icon={ExpandLessIcon} title="Show Less" />
       <hr />
       {/* <SidebarOption Icon={ExpandMore} title="Channels" /> */}
       <div
@@ -67,9 +65,9 @@ const Sidebar = () => {
         }}
       >
         {isExpanded ? (
-          <ExpandMore className="sidebarOption__icon" />
+          <ExpandMoreIcon className="sidebarOption__icon" />
         ) : (
-          <ChevronRight className="sidebarOption__icon" />
+          <ChevronRightIcon className="sidebarOption__icon" />
         )}
 
         <h3>Channels</h3>
@@ -90,7 +88,7 @@ const Sidebar = () => {
         })}
       {isExpanded && (
         <SidebarOption
-          Icon={AddBoxRounded}
+          Icon={AddBoxIcon}
           title="Add Channel"
           addChannelOption={true}
         />

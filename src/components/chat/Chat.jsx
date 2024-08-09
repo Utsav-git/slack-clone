@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "./Chat.css";
 import { useParams } from "react-router-dom";
-import { InfoOutlined, StarBorderOutlined } from "@material-ui/icons";
 import db from "../../firebase/Firebase";
 import { Message } from "../message/Message";
 import { ChatInput } from "./chat-input/ChatInput";
+import { Info, StarOutline } from "@mui/icons-material";
 const Chat = () => {
   const { roomId } = useParams();
   const [roomDetails, setRoomDetails] = useState(null);
@@ -48,12 +48,12 @@ const Chat = () => {
           <h4 className="chat__channelName">
             {/* Fetch the channel name from DB */}
             <strong>#{roomDetails?.name}</strong>
-            <StarBorderOutlined />
+            <StarOutline />
           </h4>
         </div>
         <div className="chat__headerRight">
           <p>
-            <InfoOutlined />
+            <Info />
             Details
           </p>
         </div>

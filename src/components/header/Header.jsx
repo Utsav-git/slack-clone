@@ -1,12 +1,12 @@
 import "./Header.css";
-import AccessTime from "@material-ui/icons/AccessTime";
-import HelpOutline from "@material-ui/icons/HelpOutline";
-import Search from "@material-ui/icons/Search";
-import ExitToApp from "@material-ui/icons/ExitToApp";
+import AccessTimeIcon from "@mui/icons-material/AccessTime";
+import HelpIcon from "@mui/icons-material/Help";
+import SearchIcon from "@mui/icons-material/Search";
+import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../auth/authSlice";
 import { useNavigate } from "react-router-dom";
-import { Avatar } from "@material-ui/core";
+import Avatar from "@mui/material/Avatar";
 
 const Header = () => {
   // Extract user details from redux store
@@ -44,7 +44,7 @@ const Header = () => {
         />
 
         {/* Time Icon */}
-        <AccessTime
+        <AccessTimeIcon
           titleAccess="Recents"
           onClick={() => {
             console.log("Recents");
@@ -53,19 +53,19 @@ const Header = () => {
       </div>
       <div className="header__search">
         {/* Search Icon */}
-        <Search />
+        <SearchIcon />
         {/* Search Input */}
         <input type="text" placeholder="Search Here" />
       </div>
       <div className="header__right">
         {/* Help Icon */}
-        <HelpOutline
+        <HelpIcon
           titleAccess="Help"
           onClick={() => {
             console.log("Help");
           }}
         />
-        <ExitToApp titleAccess="Logout" onClick={signOut} />
+        <ExitToAppIcon titleAccess="Logout" onClick={signOut} />
       </div>
     </div>
   );

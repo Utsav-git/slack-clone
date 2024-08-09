@@ -8,7 +8,7 @@ import { Login } from "./components/login/Login";
 import { useSelector } from "react-redux";
 
 function App() {
-  let { isAuth, user } = useSelector((state) => state.authentication);
+  let { isAuth } = useSelector((state) => state.authentication);
 
   if (localStorage.getItem("isAuthenticated")) {
     localStorage.getItem("isAuthenticated")
@@ -33,7 +33,7 @@ function App() {
               <Routes>
                 <Route path="/room/:roomId" element={<Chat />}></Route>
                 <Route path="/welcome" element={<Welcome />}></Route>
-                <Route path="/" element={<Login />}></Route>
+                {/* <Route path="/" element={<Login />}></Route> */}
               </Routes>
             </div>
           </>

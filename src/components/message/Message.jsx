@@ -1,15 +1,15 @@
 import React from "react";
 import "./Message.css";
 
-export const Message = ({ message, timeStamp, user, userImage }) => {
+export const Message = ({ message, createdAt, user, userImage }) => {
   return (
     <div className="message">
       <img src={userImage} alt="User Img" />
       <div className="message__info">
         <h4>
           {user}
-          <span className="message__timestamp">
-            {new Date(timeStamp?.toDate()).toUTCString()}
+          <span className="message__createdAt">
+            {new Date(createdAt?.toDate()).toLocaleString()}
           </span>
         </h4>
         <p>{message}</p>

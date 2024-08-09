@@ -17,6 +17,7 @@ export const Login = () => {
         const data = res.user;
         dispatch(login(data));
         localStorage.setItem("isAuthenticated", true);
+        localStorage.setItem("userDetails", JSON.stringify(data));
         navigate("/welcome");
       })
       .catch((error) => console.log(error.message));

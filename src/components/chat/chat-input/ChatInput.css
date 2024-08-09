@@ -1,0 +1,37 @@
+.chatInput {
+  /* background-color: #f1f1f1; */
+  padding: 0 20px;
+}
+.chatInput > form {
+  position: relative;
+  /* bottom: 30px; */
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+.chatInput > form > input {
+  width: 80%;
+  border: none;
+  background-color: #ededed;
+  height: 50px;
+  border-radius: 8px;
+  padding: 0 10px;
+  margin-right: 5px;
+}
+.chatInput > form > .submitBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  border: none;
+  color: var(--white);
+  background-color: #673569;
+  cursor: pointer;
+  /* display: none; */
+}
+
+.submitBtn .MuiSvgIcon-root {
+  font-size: 20px;
+}

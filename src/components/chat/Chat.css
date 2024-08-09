@@ -24,6 +24,7 @@
   display: flex;
   align-items: center;
   font-size: 14px;
+  cursor: pointer;
 }
 .chat__headerRight > p > .MuiSvgIcon-root {
   margin-right: 5px !important;
@@ -32,4 +33,13 @@
 .chat__messages {
   height: 80vh;
   overflow-y: auto;
+}
+.chat__empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  height: 80vh;
+  font-size: 18px;
+  font-style: italic  ;
 }

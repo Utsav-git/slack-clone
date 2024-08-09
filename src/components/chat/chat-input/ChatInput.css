@@ -10,7 +10,7 @@
   align-items: center;
 }
 .chatInput > form > input {
-  width: 70%;
+  width: 80%;
   border: none;
   background-color: #ededed;
   height: 50px;

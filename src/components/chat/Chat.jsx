@@ -59,7 +59,7 @@ const Chat = () => {
         </div>
       </div>
       <div className="chat__messages">
-        {roomMessages.length === 0 && <div>Start Messaging and Connect</div>}
+        {roomMessages.length === 0 && <div className="chat__empty">Start a Conversation 👋</div>}
         {/* Message Component */}
         {roomMessages.map(
           ({ message, createdAt, user, userImage }) => (

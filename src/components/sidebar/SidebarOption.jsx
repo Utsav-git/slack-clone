@@ -12,15 +12,13 @@ const SidebarOption = ({ Icon, title, id, addChannelOption }) => {
   // const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const addChannel = () => {
-    // const channelName = prompt(`Please enter channel name`);
+    const channelName = prompt(`Please enter channel name`);
     setOpen(true);
-
-    // if (channelName) {
-    //   db.collection("channels").add({
-    //     name: channelName,
-    //   });
-    // }
-    // <ModalComponent open={true} />;
+    if (channelName) {
+      db.collection("channels").add({
+        name: channelName,
+      });
+    }
   };
   const selectChannel = () => {
     id ? navigate(`/room/${id}`) : navigate(title);

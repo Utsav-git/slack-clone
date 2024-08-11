@@ -33,6 +33,7 @@
 .chat__messages {
   height: 80vh;
   overflow-y: auto;
+  overflow-x: hidden;
 }
 .chat__empty {
   display: flex;
@@ -41,5 +42,5 @@
   width: 90%;
   height: 80vh;
   font-size: 18px;
-  font-style: italic  ;
+  font-style: italic;
 }

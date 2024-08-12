@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap");
 body {
   --slack-color: #3f0f40;
   --slack-color-light: #421f44;
@@ -6,6 +7,7 @@ body {
   --gray: #808080;
   --green: #6ccca5;
   overflow: hidden;
+  font-family: "Nunito Sans";
 }
 .app__body {
   display: flex;

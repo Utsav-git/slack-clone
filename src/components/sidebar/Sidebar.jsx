@@ -1,15 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Sidebar.css";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
-import CreateIcon from '@mui/icons-material/Create';
-import InsertCommentIcon from "@mui/icons-material/InsertComment";
-import InboxIcon from "@mui/icons-material/Inbox";
-import DraftsIcon from "@mui/icons-material/Drafts";
-import BookmarkIcon from "@mui/icons-material/Bookmark";
-import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
-import AppsIcon from "@mui/icons-material/Apps";
-import FileCopyIcon from "@mui/icons-material/FileCopy";
-import ExpandLessIcon from "@mui/icons-material/ExpandLess";
+import CreateIcon from "@mui/icons-material/Create";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import AddBoxIcon from "@mui/icons-material/AddBox";
@@ -48,7 +40,7 @@ const Sidebar = () => {
 
         <CreateIcon />
       </div>
-      <SidebarOption Icon={InsertCommentIcon} title="Unread" />
+      {/* <SidebarOption Icon={InsertCommentIcon} title="Unread" />
       <SidebarOption Icon={InboxIcon} title="Mentions & Reactions" />
       <SidebarOption Icon={DraftsIcon} title="Saved Items" />
       <SidebarOption Icon={BookmarkIcon} title="Channel Browser" />
@@ -56,7 +48,7 @@ const Sidebar = () => {
       <SidebarOption Icon={AppsIcon} title="Apps" />
       <SidebarOption Icon={FileCopyIcon} title="File Browser" />
       <SidebarOption Icon={ExpandLessIcon} title="Show Less" />
-      <hr />
+      <hr /> */}
       {/* <SidebarOption Icon={ExpandMore} title="Channels" /> */}
       <div
         className="sidebarOption"

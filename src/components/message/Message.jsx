@@ -4,7 +4,7 @@ import "./Message.css";
 export const Message = ({ message, createdAt, user, userImage }) => {
   return (
     <div className="message">
-      <img src={userImage} alt="User Img" />
+      <img src={userImage} alt="User" />
       <div className="message__info">
         <h4>
           {user}

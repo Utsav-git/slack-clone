@@ -4,7 +4,7 @@
 }
 .chatInput > form {
   position: relative;
-  /* bottom: 30px; */
+  bottom: 20px;
   display: flex;
   justify-content: start;
   align-items: center;
